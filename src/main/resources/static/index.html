@@ -1,20 +1,28 @@
 <!DOCTYPE html>
-<html lang="es" data-ng-app="tareas">
+<html lang="es" data-ng-app='appTareas'>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tareas</title>
-    <link rel="stylesheet" href="assets/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/assets/librerias/bootstrap-4.0.0-dist/css/bootstrap.min.css">
 </head>
 
-<body data-ng-controller="indexController">
+<body data-ng-controller='tareasCtrl'>
+    {{suma}}
 
 
-    <script src="assets/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
-    <script src="assets/angular.min.js"></script>
-    <script src="controladores/indexController.js"></script>
+    <script src="assets/librerias/angular/angular.min.js"></script>
+    <script src="assets/librerias/jquery-3.4.1.min.js"></script>
+    <script src="assets/librerias/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+    <!--angular modulos-->
+    <script src="app/modulos/app.js"></script>
+    <!--angular factories-->
+    <script src="app/factories/factory.js"></script>
+    <!--angular controladores-->
+    <script src="app/controladores/tareasCtrl.js"></script>
 </body>
 
 </html>
