@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" data-ng-controller='usuarioCtrl'>
     <div>
         <div class="row" data-ng-show="!usuario">
             <div class="col-12">
@@ -6,12 +6,11 @@
                     <thead>
                         <tr>
                             <th scope="col">Id</th>
-                            <th scope="col">nombre</th>
+                            <th scope="col">Nombre</th>
                             <th scope="col">Apellido Paterno</th>
                             <th scope="col">Apellido Materno</th>
                             <th scope="col">Tipo</th>
-                            <th scope="col">Password</th>
-                            <th></th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -20,7 +19,7 @@
                             <td>{{file.nombre}}</td>
                             <td>{{file.paterno}}</td>
                             <td>{{file.materno}}</td>
-                            <td>{{file.Password}}</td>
+                            <td>{{file.tipo}}</td>
                             <td class=" text-left">
                                 <button type="button" class="btn btn-warning" data-ng-click="iniciarEdicion(file);"><i
                                         class="fa fa-edit"></i>
@@ -39,20 +38,20 @@
 
 
 
-        <div class="row" data-ng-show="tarea">
+        <div class="row" data-ng-show="usuario">
             <div class="col-12">
-                <form name="editarTareaForm" autocomplete="off" data-ng-submit="submitForm(editarTareaForm.$valid)"
+                <form name="editarUsuarioForm" autocomplete="off" data-ng-submit="submitForm(editarUsuarioForm.$valid)"
                     novalidate>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label for="txtTitulo">Titulo:</label>
+                                        <label for="txtTitulo">Nombre:</label>
                                         <div class="input-group"><span class="input-group-addon"><i
                                                     class="fa fa-text-height"></i></span>
                                             <input id="txtTitulo" type="text" class="form-control form-control-bold"
-                                                data-ng-maxlength="120" maxlength="120" data-ng-model="tarea.titulo"
+                                                data-ng-maxlength="120" maxlength="120" data-ng-model="usuario.nombre"
                                                 placeholder="El titulo aqui" required />
                                         </div>
                                     </div>
@@ -61,13 +60,12 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label for="mdate">Fecha:</label>
-                                        <div class="input-group"><span class="input-group-addon"> <span
-                                                    class="fa fa-calendar"></span> </span>
-                                            <input type="date" class="form-control  form-control-bold"
-                                                data-ng-model="tarea.fecha" placeholder="2018-02-06" id="mdate"
-                                                onkeydown="return false" value="{{fecha | date: 'yyyy-MM-dd'}}"
-                                                max="{{fecha | date: 'yyyy-MM-dd'}}" required />
+                                        <label for="txtTitulo">Apellido Paterno:</label>
+                                        <div class="input-group"><span class="input-group-addon"><i
+                                                    class="fa fa-text-height"></i></span>
+                                            <input id="txtTitulo" type="text" class="form-control form-control-bold"
+                                                data-ng-maxlength="120" maxlength="120" data-ng-model="usuario.paterno"
+                                                placeholder="Apellido Paterno" required />
                                         </div>
                                     </div>
                                 </div>
@@ -75,17 +73,33 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label for="txtDescripcion">Descripcion:</label>
+                                        <label for="txtTitulo">Apellido Materno:</label>
                                         <div class="input-group"><span class="input-group-addon"><i
-                                                    class="fa fa-edit"></i></span>
-                                            <!--<label class="control-label mb-5">Descripcion:</label>-->
-                                            <textarea id="txtDescripcion" class="form-control" rows="4"
-                                                style="resize:vertical" data-ng-model="tarea.descripcion"
-                                                placeholder="Descricion"></textarea>
+                                                    class="fa fa-text-height"></i></span>
+                                            <input id="txtTitulo" type="text" class="form-control form-control-bold"
+                                                data-ng-maxlength="120" maxlength="120" data-ng-model="usuario.materno"
+                                                placeholder="Apellido Paterno" required />
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                         
+<!--                             	<div class="row"> -->
+<!--                                 	  <div class="col-xs-12"> -->
+<!--                                             <div class="form-group"> -->
+<!--                                                 <label for="cbxTipo">Tipo:</label> -->
+<!--                                                 <div class="input-group"><span class="input-group-addon"><i -->
+<!--                                                             class="fa fa-book"></i></span> -->
+<!--                                                     <select id="cbxtipo" class="form-control" required -->
+<!--                                                         data-ng-model="archivo.tipo"> -->
+<!--                                                         <option data-ng-repeat="tipo" -->
+<!--                                                             value="{{area.descripcion}}">{{area.descripcion}} -->
+<!--                                                         </option> -->
+<!--                                                     </select> -->
+<!--                                                 </div> -->
+<!--                                             </div> -->
+<!--                                         </div> -->
+<!--                                     </div> -->
                         </div>
                     </div>
                     <!--</div>-->

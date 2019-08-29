@@ -4,11 +4,9 @@ const app = angular.module('appTareas', ['ngRoute'])
 		$routeProvider
 			.when("/", {
 				templateUrl: "app/vistas/tarea.html",
-				controller: "app/controladores/tareasCtrl.js"
+				//controller: "app/controladores/tareasCtrl"
 			}).when("/usuario", {
 				templateUrl: "app/vistas/usuario.html",
-				controller: "app/controladores/usuarioCtrl.js"
-			}).otherwise({
-				redirectTo: "/"
-			});
+				//controller: "app/controladores/usuarioCtrl"
+			})
 	}]);

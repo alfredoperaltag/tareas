@@ -18,7 +18,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
-@RequestMapping(path = "/usuario")
+@RequestMapping(path = "/")
 public class UsuarioController {
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 	private ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES,false);
