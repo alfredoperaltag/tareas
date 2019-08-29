@@ -9,6 +9,7 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "tareas")
 public class Tareas {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int Id;
@@ -24,6 +25,25 @@ public class Tareas {
 	
 	@Column(columnDefinition = "TEXT")
 	private String Descripcion;
+	
+	public Tareas() {
+	}
+	
+	public Tareas(int id, @NotNull @Size(min = 2, max = 40) String titulo, @NotNull Date fecha, String descripcion) {
+		super();
+		Id = id;
+		Titulo = titulo;
+		Fecha = fecha;
+		Descripcion = descripcion;
+	}
+	
+
+	public Tareas(@NotNull @Size(min = 2, max = 40) String titulo, @NotNull Date fecha, String descripcion) {
+		super();
+		Titulo = titulo;
+		Fecha = fecha;
+		Descripcion = descripcion;
+	}
 
 	public int getId() {
 		return Id;
@@ -57,24 +77,7 @@ public class Tareas {
 		Descripcion = descripcion;
 	}
 
-	public Tareas() {
-	}
 	
-	public Tareas(int id, @NotNull @Size(min = 2, max = 40) String titulo, @NotNull Date fecha, String descripcion) {
-		super();
-		Id = id;
-		Titulo = titulo;
-		Fecha = fecha;
-		Descripcion = descripcion;
-	}
-	
-
-	public Tareas(@NotNull @Size(min = 2, max = 40) String titulo, @NotNull Date fecha, String descripcion) {
-		super();
-		Titulo = titulo;
-		Fecha = fecha;
-		Descripcion = descripcion;
-	}
 
 	@Override
 	public String toString() {

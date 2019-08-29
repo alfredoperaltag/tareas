@@ -1,40 +1,18 @@
-app.service('tareasService', function ($q, factory) {
-    const self = this;
-    const path = 'tareas';
-    self.get() = () => {
+app.service ('tareasService', function($q, factory) {
+    const SELF = this;
+    // nombre del restController
+    const PATH = 'tareas';
+
+    SELF.get = () => {
         return $q((success, error) => {
-            factory.get(path).then((resolve) => {
-                return success(resolve);
-            }, (reject) => {
-                return error(error);
-            });
+            factory.get(PATH).then(
+                (resolve) => {
+                    success(resolve)
+                },
+                (reject) => {
+                    error(reject)
+                })
         })
     }
-    self.post = (tarea) => {
-        return $q((success, error) => {
-            factory.post(path, tarea).then((resolve) => {
-                return success(resolve);
-            }, (reject) => {
-                return error(error);
-            });
-        })
-    }
-    self.put = (tarea) => {
-        return $q((success, error) => {
-            factory.put(path, tarea).then((resolve) => {
-                return success(resolve);
-            }, (reject) => {
-                return error(error);
-            });
-        })
-    }
-    self.delete = (tarea) => {
-        return $q((success, error) => {
-            factory.delete(path, tarea).then((resolve) => {
-                return success(resolve);
-            }, (reject) => {
-                return error(error);
-            });
-        })
-    }
+    // realizar conttrolador y terminar el REST
 })
