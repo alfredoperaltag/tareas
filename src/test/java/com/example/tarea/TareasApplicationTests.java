@@ -13,7 +13,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.example.tarea.entidades.Usuario;
 import com.example.tarea.entidades.Tareas;
+import com.example.tarea.servicios.UsuarioService;
 import com.example.tarea.servicios.TareasService;
 
 @RunWith(SpringRunner.class)
@@ -102,5 +104,4 @@ public class TareasApplicationTests {
             log.error("No se encontro la lista "+ex.getMessage());
         }
 }
-
 }
