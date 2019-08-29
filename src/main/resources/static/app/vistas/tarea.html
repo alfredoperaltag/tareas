@@ -1,0 +1,114 @@
+<div class="container" data-ng-controller='tareasCtrl'>
+    <div class="row">
+        <div class="col">
+            <a class="btn btn-success" href="#/usuario">Usuarios</a>
+        </div>
+    </div>
+    <div>
+        <div class="row" data-ng-show="!tarea">
+            <div class="col-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Titulo</th>
+                            <th scope="col">fecha</th>
+                            <th scope="col">Descripcion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-ng-repeat="file in listarTareas">
+                            <td>{{file.id}}</td>
+                            <td>{{file.titulo}}</td>
+                            <td>{{file.fecha | date:'dd-MM-yyyy'}}</td>
+                            <td>{{file.descripcion}}</td>
+                            <td class=" text-left">
+                                <button type="button" class="btn btn-warning" data-ng-click="iniciarEdicion(file);"><i
+                                        class="fa fa-edit"></i>
+                                    Editar</button>
+                                <button type="button" class="btn btn-danger" data-ng-click="borrarTarea(file)"><i
+                                        class="fa fa-times"></i>
+                                    Borrar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-info" data-ng-click="verSeccion();">
+                    Agregar</button>
+            </div>
+        </div>
+
+
+
+        <div class="row" data-ng-show="tarea">
+            <div class="col-12">
+                <form name="editarTareaForm" autocomplete="off" data-ng-submit="submitForm(editarTareaForm.$valid)"
+                    novalidate>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label for="txtTitulo">Titulo:</label>
+                                        <div class="input-group"><span class="input-group-addon"><i
+                                                    class="fa fa-text-height"></i></span>
+                                            <input id="txtTitulo" type="text" class="form-control form-control-bold"
+                                                data-ng-maxlength="120" maxlength="120" data-ng-model="tarea.titulo"
+                                                placeholder="El titulo aqui" required />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label for="mdate">Fecha:</label>
+                                        <div class="input-group"><span class="input-group-addon"> <span
+                                                    class="fa fa-calendar"></span> </span>
+                                            <input type="date" class="form-control  form-control-bold"
+                                                data-ng-model="tarea.fecha" placeholder="2018-02-06" id="mdate"
+                                                onkeydown="return false" value="{{fecha | date: 'yyyy-MM-dd'}}"
+                                                max="{{fecha | date: 'yyyy-MM-dd'}}" required />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label for="txtDescripcion">Descripcion:</label>
+                                        <div class="input-group"><span class="input-group-addon"><i
+                                                    class="fa fa-edit"></i></span>
+                                            <!--<label class="control-label mb-5">Descripcion:</label>-->
+                                            <textarea id="txtDescripcion" class="form-control" rows="4"
+                                                style="resize:vertical" data-ng-model="tarea.descripcion"
+                                                placeholder="Descricion"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--</div>-->
+                    <!--Fin panel body-->
+                    <div class="panel-footer">
+                        <div class="row" style="margin-bottom:10px">
+                            <div class="col-xs-12 text-right">
+                                <button type="button" class="btn btn-danger" style="margin-right:10px"
+                                    data-ng-click="initController();"><i class="fa fa-times"></i>
+                                    Cancelar
+                                </button>
+                                <button type="reset" class="btn btn-warning" style="margin-right:10px"><i
+                                        class="fa fa-sync"></i> Restaurar
+                                </button>
+                                <button type="submit" class="btn btn-success"><i class="fa fa-send"></i>
+                                    {{tarea.id?'Actualizar':'Agregar'}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
