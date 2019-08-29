@@ -2,14 +2,11 @@ app.controller('tareasCtrl', function ($scope, tareasService, $location) {
     $scope.suma = 3 + 3;
     //$scope.tarea = {};
     $scope.listarTareas = {};
-    $scope.tareaEditar = {};
+    //$scope.tareaEditar = {};
 
     $scope.verSeccion = function () {
-//        $scope.accion = accion;
     	$scope.tarea= {};
     };
-
-    
 
     $scope.obtenerTarea = function(){
     	tareasService.get().then((data) => {
@@ -19,11 +16,6 @@ app.controller('tareasCtrl', function ($scope, tareasService, $location) {
             console.log("Ctrl: ", reject);
         });
     }
-    
-
-//    $scope.tarea.titulo=$scope.titulo;
-//    $scope.tarea.fecha=$scope.fecha;
-//    $scope.tarea.descripcion=$scope.descripcion;
     
     
     $scope.submitForm= function(esValido){
@@ -45,11 +37,9 @@ app.controller('tareasCtrl', function ($scope, tareasService, $location) {
             }
     }
     
-    $scope.enviarTarea = function () {
-        
-        
+    
+    $scope.enviarTarea = function () {    
         console.log("tarea",$scope.tarea);
-        
             tareasService.post($scope.tarea).then((respuesta) => {
             	console.log("respuesta",respuesta);
                 if (respuesta===true) {
@@ -65,8 +55,6 @@ app.controller('tareasCtrl', function ($scope, tareasService, $location) {
                 } else{
                 	console.log("ERROR");
                 }
-                //console.log("post: ", scope.archivo);
-                //$scope.listarTareas = data;
             }, (reject) => {
                 console.log("Ctrl: ", reject);
             });
@@ -79,38 +67,60 @@ app.controller('tareasCtrl', function ($scope, tareasService, $location) {
 //        $scope.verSeccion('Editar');
     }
     
-
-    $scope.editarTarea = function (esValido) {
-        if (esValido) {
-        
-        console.log("tareaEditar",$scope.tareaEditar);
-        
-            tareasService.put($scope.tareaEditar).then((respuesta) => {
+ 
+    $scope.editarTarea = function () {        
+        console.log("tareaEditar",$scope.tarea);
+            tareasService.put($scope.tarea).then((respuesta) => {
             	console.log("respuesta",respuesta);
                 if (respuesta===true) {
                 	console.log(respuesta);
-                	//$scope.tarea = {};
                     Swal.fire(
                         '¡OK!',
                         '¡Se edito correctamente!',
                         'success'
                     )
-                    $scope.verSeccion('Lista');
+                    $scope.tarea=null;
+                    $scope.obtenerTarea();
                 } else{
                 	console.log("ERROR");
                 }
-                //console.log("post: ", scope.archivo);
-                //$scope.listarTareas = data;
             }, (reject) => {
                 console.log("Ctrl: ", reject);
             });
-        } else {
-            Swal.fire(
-                '¡error!',
-                '¡Faltan Datos!',
-                'error'
-            )
-        }
+       
+    }
+    
+    $scope.borrarTarea = function(tarea){
+    	Swal.fire({
+    		  title: '¿Estas seguro?',
+    		  text: "¡Esta accion es permante!",
+    		  type: 'warning',
+    		  showCancelButton: true,
+    		  confirmButtonColor: '#3085d6',
+    		  cancelButtonColor: '#d33',
+    		  confirmButtonText: 'Si, Eliminar!'
+    		}).then((result) => {
+    		  if (result.value) {
+    			  console.log("tareaBorrar",tarea);
+    	            tareasService.delete(tarea).then((respuesta) => {
+    	            	console.log("respuesta",respuesta);
+    	                if (respuesta===true) {
+    	                	console.log(respuesta);
+    	                	Swal.fire(
+    	              		      'Eliminado!',
+    	              		      'La tarea se borro correctamente .',
+    	              		      'success'
+    	              		    )
+    	                    $scope.tarea=null;
+    	                    $scope.obtenerTarea();
+    	                } else{
+    	                	console.log("ERROR");
+    	                }
+    	            }, (reject) => {
+    	                console.log("Ctrl: ", reject);
+    	            });
+    		  }
+    		})
     }
     
     const initController = function(){
