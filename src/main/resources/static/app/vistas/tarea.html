@@ -7,41 +7,41 @@
     <div>
         <div class="row" data-ng-show="!tarea">
             <div class="col-12">
-            <div class="card text-center">
-            
-            	<div class="card-body">
-            	<h3>Lista de Tareas</h3>
-            		<table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Titulo</th>
-                            <th scope="col">fecha</th>
-                            <th scope="col">Descripcion</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr data-ng-repeat="file in listarTareas">
-                            <td>{{file.id}}</td>
-                            <td>{{file.titulo}}</td>
-                            <td>{{file.fecha | date:'dd-MM-yyyy'}}</td>
-                            <td>{{file.descripcion}}</td>
-                            <td class=" text-left">
-                                <button type="button" class="btn btn-warning" data-ng-click="iniciarEdicion(file);"><i
-                                        class="fa fa-edit"></i>
-                                    Editar</button>
-                                <button type="button" class="btn btn-danger" data-ng-click="borrarTarea(file)"><i
-                                        class="fa fa-times"></i>
-                                    Borrar</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <button type="button" class="btn btn-info" data-ng-click="verSeccion();">
-                    Agregar</button>
-            	</div>
-            </div>
-                
+                <div class="card text-center">
+
+                    <div class="card-body">
+                        <h3>Lista de Tareas</h3>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Titulo</th>
+                                    <th scope="col">fecha</th>
+                                    <th scope="col">Descripcion</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-ng-repeat="file in listarTareas">
+                                    <td>{{file.id}}</td>
+                                    <td>{{file.titulo}}</td>
+                                    <td>{{file.fecha | date:'dd-MM-yyyy'}}</td>
+                                    <td>{{file.descripcion}}</td>
+                                    <td class=" text-left">
+                                        <button type="button" class="btn btn-warning"
+                                            data-ng-click="iniciarEdicion(file);"><i class="fa fa-edit"></i>
+                                            Editar</button>
+                                        <button type="button" class="btn btn-danger"
+                                            data-ng-click="borrarTarea(file)"><i class="fa fa-times"></i>
+                                            Borrar</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button type="button" class="btn btn-info" data-ng-click="verSeccion();">
+                            Agregar</button>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -49,14 +49,14 @@
 
         <div class="row" data-ng-show="tarea">
             <div class="col-12">
-            <div class="card">
-            	<div class="card-body">
-            	<h3 class="text-center">Formulario de Tareas</h3>
-            		<form name="editarTareaForm" autocomplete="off" data-ng-submit="submitForm(editarTareaForm.$valid)"
-                    novalidate>
-                    <div class="row">
-                        <div class="col">
-                            
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="text-center">Formulario de Tareas</h3>
+                        <form name="editarTareaForm" autocomplete="off"
+                            data-ng-submit="submitForm(editarTareaForm.$valid)" novalidate>
+                            <div class="row">
+                                <div class="col">
+
                                     <div class="form-group">
                                         <label for="txtTitulo">Titulo:</label>
                                         <div class="input-group"><span class="input-group-addon"><i
@@ -66,7 +66,7 @@
                                                 placeholder="El titulo aqui" required />
                                         </div>
                                     </div>
-                                
+
                                     <div class="form-group">
                                         <label for="mdate">Fecha:</label>
                                         <div class="input-group"><span class="input-group-addon"> <span
@@ -77,8 +77,8 @@
                                                 max="{{fecha | date: 'yyyy-MM-dd'}}" required />
                                         </div>
                                     </div>
-                                
-                            
+
+
                                     <div class="form-group">
                                         <label for="txtDescripcion">Descripcion:</label>
                                         <div class="input-group"><span class="input-group-addon"><i
@@ -89,31 +89,30 @@
                                                 placeholder="Descricion"></textarea>
                                         </div>
                                     </div>
-                                
-                        </div>
-                    </div>
-                    <!--</div>-->
-                    <!--Fin panel body-->
-                    <div class="panel-footer">
-                        <div class="row" style="margin-bottom:10px">
-                            <div class="col-xs-12 text-right">
-                                <button type="button" class="btn btn-danger" style="margin-right:10px"
-                                    data-ng-click="cancelar();"><i class="fa fa-times"></i>
-                                    Cancelar
-                                </button>
-                                <button type="reset" class="btn btn-warning" style="margin-right:10px"><i
-                                        class="fa fa-sync"></i> Restaurar
-                                </button>
-                                <button type="submit" class="btn btn-success"><i class="fa fa-send"></i>
-                                    {{tarea.id?'Actualizar':'Agregar'}}
-                                </button>
+
+                                </div>
                             </div>
-                        </div>
+                            <!--</div>-->
+                            <!--Fin panel body-->
+                            <div class="panel-footer">
+                                <div class="row" style="margin-bottom:10px">
+                                    <div class="col-xs-12 text-right">
+                                        <button type="button" class="btn btn-danger" style="margin-right:10px"
+                                            data-ng-click="cancelar();"><i class="fa fa-times"></i>
+                                            Cancelar
+                                        </button>
+                                        <button type="reset" class="btn btn-warning" style="margin-right:10px"><i
+                                                class="fa fa-sync"></i> Restaurar
+                                        </button>
+                                        <button type="submit" class="btn btn-success"><i class="fa fa-send"></i>
+                                            {{tarea.id?'Actualizar':'Agregar'}}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                </form>
-            	</div>
-            </div>
-                
+                </div>
             </div>
         </div>
     </div>

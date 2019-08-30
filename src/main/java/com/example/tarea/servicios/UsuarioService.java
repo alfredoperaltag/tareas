@@ -10,4 +10,6 @@ public interface UsuarioService {
     public boolean actualizarUsuario(Usuario usuario);
     public boolean borrarUsuario(Usuario usuario);
     public List<Usuario> listarUsuario();
+    
+    public Usuario login(String usuario);
 }

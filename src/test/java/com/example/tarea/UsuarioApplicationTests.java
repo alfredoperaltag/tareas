@@ -23,6 +23,21 @@ public class UsuarioApplicationTests {
     @Qualifier("UsuarioService")
 	private UsuarioService usuarioService;
     
+	@Test
+    public void login() {
+        try{
+            //Usuario usuario = new Usuario("Alfredo");
+        	
+            if (usuarioService.login("Alfredo") != null){
+                log.info("ingreso");
+            }else{
+                log.warn("no se encontro");
+            }
+        }catch (Exception ex){
+            log.error(ex.getMessage());
+        }
+    }
+	
     @Test
     public void agregarUsuario() {
         try{

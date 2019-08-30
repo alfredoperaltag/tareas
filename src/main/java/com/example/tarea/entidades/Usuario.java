@@ -40,6 +40,13 @@ public class Usuario {
 	public Usuario() {
 		
 	}
+	
+
+	public Usuario(@NotNull @Size(min = 2, max = 40) String nombre) {
+		super();
+		Nombre = nombre;
+	}
+
 
 	public Usuario(int id, @NotNull @Size(min = 2, max = 40) String nombre,
 			@NotNull @Size(min = 2, max = 40) String paterno, @NotNull @Size(min = 2, max = 40) String materno,

@@ -85,4 +85,21 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
             return null;
         }
 	}
+	@Override
+	public Usuario login(String usuario) {
+		try {
+			if(usuario != null) {
+			Usuario user =	usuarioRepository.login(usuario);
+				log.info("se encontrooooo: "+usuario.toString());
+				log.info("USER: "+user);
+                return user;
+			}
+			return null;
+		}catch(Exception ex) {
+			return null;
+		}
+		
+	}
+	
+	
 }

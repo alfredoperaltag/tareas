@@ -1,0 +1,45 @@
+<div class="card">
+    <div class="card-body">
+        <h3 class="text-center">Iniciar Sesion</h3>
+        <form name="iniciarSesion" autocomplete="off" data-ng-submit="submitForm(iniciarSesion.$valid)" novalidate>
+            <div class="row">
+                <div class="col">
+
+                    <div class="form-group">
+                        <label for="txtTitulo">nombre:</label>
+                        <div class="input-group"><span class="input-group-addon"><i
+                                    class="fa fa-text-height"></i></span>
+                            <input id="txtTitulo" type="text" class="form-control form-control-bold"
+                                data-ng-maxlength="120" maxlength="120" data-ng-model="login.nombre"
+                                placeholder="El titulo aqui" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtTitulo">password:</label>
+                        <div class="input-group"><span class="input-group-addon"><i
+                                    class="fa fa-text-height"></i></span>
+                            <input id="txtTitulo" type="text" class="form-control form-control-bold"
+                                data-ng-maxlength="120" maxlength="120" data-ng-model="login.password"
+                                placeholder="El titulo aqui" required />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--</div>-->
+            <!--Fin panel body-->
+            <div class="panel-footer">
+                <div class="row" style="margin-bottom:10px">
+                    <div class="col-xs-12 text-right">
+                        <button type="reset" class="btn btn-warning" style="margin-right:10px"><i
+                                class="fa fa-sync"></i> Restaurar
+                        </button>
+                        <button type="submit" class="btn btn-success"><i class="fa fa-send"></i>
+                            iniciar Sesion
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
