@@ -42,10 +42,15 @@ public class Usuario {
 	}
 	
 
-	public Usuario(@NotNull @Size(min = 2, max = 40) String nombre) {
+	
+
+	public Usuario(@NotNull @Size(min = 2, max = 40) String nombre, @NotNull @Size(min = 2, max = 40) String password) {
 		super();
 		Nombre = nombre;
+		Password = password;
 	}
+
+
 
 
 	public Usuario(int id, @NotNull @Size(min = 2, max = 40) String nombre,

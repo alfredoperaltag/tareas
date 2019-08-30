@@ -4,7 +4,7 @@ const app = angular.module('appTareas', ['ngRoute'])
 		$routeProvider
 			.when("/", {
 				templateUrl: "app/vistas/login.html",
-				controller: "app/controladores/loginCtrl"
+				//controller: "app/controladores/loginCtrl"
 			}).when("/tarea", {
 				templateUrl: "app/vistas/tarea.html",
 				//controller: "app/controladores/usuarioCtrl"

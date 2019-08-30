@@ -29,20 +29,20 @@ public class UsuarioController {
 	
 	@RequestMapping(path = "usuario", method = RequestMethod.GET)
     public @ResponseBody
-    Usuario login(@RequestBody String usuarioJSON){
+    List<Usuario> listarUsuario(){
         try{
-            return usuarioService.login(usuarioJSON);
+            return usuarioService.listarUsuario();
         }catch (Exception ex){
             log.error("ERROR: "+ex.getMessage());
             return null;
         }
 	}
 	
-	//@RequestMapping(path = "usuario", method = RequestMethod.GET)
+	@RequestMapping(path = "login", method = RequestMethod.POST)
     public @ResponseBody
-    List<Usuario> listarUsuario(){
+    Usuario login(@RequestBody Usuario usuarioJSON){
         try{
-            return usuarioService.listarUsuario();
+            return usuarioService.login(usuarioJSON);
         }catch (Exception ex){
             log.error("ERROR: "+ex.getMessage());
             return null;

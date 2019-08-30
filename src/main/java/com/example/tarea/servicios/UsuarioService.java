@@ -11,5 +11,5 @@ public interface UsuarioService {
     public boolean borrarUsuario(Usuario usuario);
     public List<Usuario> listarUsuario();
     
-    public Usuario login(String usuario);
+    public Usuario login(Usuario usuario);
 }

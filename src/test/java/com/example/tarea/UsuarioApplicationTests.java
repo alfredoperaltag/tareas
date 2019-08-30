@@ -26,9 +26,9 @@ public class UsuarioApplicationTests {
 	@Test
     public void login() {
         try{
-            //Usuario usuario = new Usuario("Alfredo");
+            Usuario usuario = new Usuario("Alfredo","toor");
         	
-            if (usuarioService.login("Alfredo") != null){
+            if (usuarioService.login(usuario) != null){
                 log.info("ingreso");
             }else{
                 log.warn("no se encontro");
