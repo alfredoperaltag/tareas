@@ -4,6 +4,10 @@ app.controller('tareasCtrl', function ($scope, tareasService) {
     $scope.listarTareas = {};
     //$scope.tareaEditar = {};
 
+    $scope.cancelar = function(){
+    	$scope.tarea = null;
+    }
+    
     $scope.verSeccion = function () {
         $scope.tarea = {};
     };

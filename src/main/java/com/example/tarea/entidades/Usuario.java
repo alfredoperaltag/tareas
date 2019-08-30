@@ -63,6 +63,55 @@ public class Usuario {
 		Tipo = tipo;
 		Password = password;
 	}
+	
+
+	public int getId() {
+		return Id;
+	}
+
+	public void setId(int id) {
+		Id = id;
+	}
+
+	public String getNombre() {
+		return Nombre;
+	}
+
+	public void setNombre(String nombre) {
+		Nombre = nombre;
+	}
+
+	public String getPaterno() {
+		return Paterno;
+	}
+
+	public void setPaterno(String paterno) {
+		Paterno = paterno;
+	}
+
+	public String getMaterno() {
+		return Materno;
+	}
+
+	public void setMaterno(String materno) {
+		Materno = materno;
+	}
+
+	public String getTipo() {
+		return Tipo;
+	}
+
+	public void setTipo(String tipo) {
+		Tipo = tipo;
+	}
+
+	public String getPassword() {
+		return Password;
+	}
+
+	public void setPassword(String password) {
+		Password = password;
+	}
 
 	@Override
 	public String toString() {

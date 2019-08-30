@@ -1,10 +1,10 @@
 package com.example.tarea.entidades;
 
 import java.util.Date;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
 
 @Entity
 @Table(name = "tareas")
@@ -25,6 +25,10 @@ public class Tareas {
 	
 	@Column(columnDefinition = "TEXT")
 	private String Descripcion;
+	
+	@ManyToOne
+	@JoinColumn(name="Id_usuario")
+	private Usuario usuario;
 	
 	public Tareas() {
 	}
@@ -77,7 +81,13 @@ public class Tareas {
 		Descripcion = descripcion;
 	}
 
-	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 	@Override
 	public String toString() {

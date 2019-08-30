@@ -7,7 +7,11 @@
     <div>
         <div class="row" data-ng-show="!tarea">
             <div class="col-12">
-                <table class="table">
+            <div class="card text-center">
+            
+            	<div class="card-body">
+            	<h3>Lista de Tareas</h3>
+            		<table class="table">
                     <thead>
                         <tr>
                             <th scope="col">Id</th>
@@ -35,6 +39,9 @@
                 </table>
                 <button type="button" class="btn btn-info" data-ng-click="verSeccion();">
                     Agregar</button>
+            	</div>
+            </div>
+                
             </div>
         </div>
 
@@ -42,12 +49,14 @@
 
         <div class="row" data-ng-show="tarea">
             <div class="col-12">
-                <form name="editarTareaForm" autocomplete="off" data-ng-submit="submitForm(editarTareaForm.$valid)"
+            <div class="card">
+            	<div class="card-body">
+            	<h3 class="text-center">Formulario de Tareas</h3>
+            		<form name="editarTareaForm" autocomplete="off" data-ng-submit="submitForm(editarTareaForm.$valid)"
                     novalidate>
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-xs-12">
+                        <div class="col">
+                            
                                     <div class="form-group">
                                         <label for="txtTitulo">Titulo:</label>
                                         <div class="input-group"><span class="input-group-addon"><i
@@ -57,10 +66,7 @@
                                                 placeholder="El titulo aqui" required />
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
+                                
                                     <div class="form-group">
                                         <label for="mdate">Fecha:</label>
                                         <div class="input-group"><span class="input-group-addon"> <span
@@ -71,10 +77,8 @@
                                                 max="{{fecha | date: 'yyyy-MM-dd'}}" required />
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
+                                
+                            
                                     <div class="form-group">
                                         <label for="txtDescripcion">Descripcion:</label>
                                         <div class="input-group"><span class="input-group-addon"><i
@@ -85,8 +89,7 @@
                                                 placeholder="Descricion"></textarea>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                
                         </div>
                     </div>
                     <!--</div>-->
@@ -95,7 +98,7 @@
                         <div class="row" style="margin-bottom:10px">
                             <div class="col-xs-12 text-right">
                                 <button type="button" class="btn btn-danger" style="margin-right:10px"
-                                    data-ng-click="initController();"><i class="fa fa-times"></i>
+                                    data-ng-click="cancelar();"><i class="fa fa-times"></i>
                                     Cancelar
                                 </button>
                                 <button type="reset" class="btn btn-warning" style="margin-right:10px"><i
@@ -108,6 +111,9 @@
                         </div>
                     </div>
                 </form>
+            	</div>
+            </div>
+                
             </div>
         </div>
     </div>
