@@ -2,10 +2,22 @@ app.service ('usuarioService', function($q, factory) {
     const SELF = this;
     // nombre del restController
     const PATH = 'usuario';
+    const PATH2 = 'login';
 
     SELF.get = () => {
         return $q((success, error) => {
             factory.get(PATH).then(
+                (resolve) => {
+                    success(resolve)
+                },
+                (reject) => {
+                    error(reject)
+                })
+        })
+    }
+    SELF.postLogin = (usuario) => {
+        return $q((success, error) => {
+            factory.post(PATH2, usuario).then(
                 (resolve) => {
                     success(resolve)
                 },

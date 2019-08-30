@@ -41,8 +41,11 @@ public class UsuarioController {
 	@RequestMapping(path = "login", method = RequestMethod.POST)
     public @ResponseBody
     Usuario login(@RequestBody Usuario usuarioJSON){
+		log.info("Usuario JSON"+usuarioJSON);
         try{
-            return usuarioService.login(usuarioJSON);
+        		
+        		return usuarioService.login(usuarioJSON);
+        	
         }catch (Exception ex){
             log.error("ERROR: "+ex.getMessage());
             return null;

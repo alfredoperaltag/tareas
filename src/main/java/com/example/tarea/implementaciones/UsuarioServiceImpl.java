@@ -87,21 +87,26 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 	}
 	@Override
 	public Usuario login(Usuario usuario) {
-		
 			try {
-				if(usuario != null) {
-				Usuario user =	usuarioRepository.login(usuario.getNombre());
-					log.info("se encontrooooo: "+usuario.toString());
-					log.info("USER: "+user);
-					if(usuario.getPassword().equals(user.getPassword())) {
-						return user;
+				log.info("1.- "+ usuario);
+				
+					if(usuario != null) {
+						Usuario user = usuarioRepository.login(usuario.getNombre());
+						if(usuario.getPassword().equals(user.getPassword())) {
+							log.info("Se Cumple las 2 "+ usuario);
+							return usuarioRepository.login(usuario.getNombre());
+							
+						}else {
+							log.info("NO RETURN");
+							return null;
+						
+						}
 					} else {
-						log.info("NO RETURN");
+						return null;
 					}
-	                
-				}
-				return null;
+				
 			}catch(Exception ex) {
+				log.error("EXCEPTION"+ex.getMessage());
 				return null;
 			}
 		}
