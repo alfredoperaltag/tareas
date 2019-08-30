@@ -89,24 +89,19 @@ private Logger log = LoggerFactory.getLogger(this.getClass());
 	public Usuario login(Usuario usuario) {
 			try {
 				log.info("1.- "+ usuario);
-				
-					if(usuario != null) {
 						Usuario user = usuarioRepository.login(usuario.getNombre());
-						if(usuario.getPassword().equals(user.getPassword())) {
-							log.info("Se Cumple las 2 "+ usuario);
-							return usuarioRepository.login(usuario.getNombre());
-							
-						}else {
-							log.info("NO RETURN");
-							return null;
-						
+						log.info("SE CONSULTA: "+usuario.getNombre());
+						if(user != null) {
+							if(usuario.getPassword().equals(user.getPassword())) {
+								log.info("Retorna algo "+ usuarioRepository.login(usuario.getNombre()));
+								return usuarioRepository.login(usuario.getNombre());
+							}					
 						}
-					} else {
+						log.info("se retorna null");
 						return null;
-					}
-				
+						
 			}catch(Exception ex) {
-				log.error("EXCEPTION"+ex.getMessage());
+				log.error("EXCEPTION: "+ex.getMessage());
 				return null;
 			}
 		}
