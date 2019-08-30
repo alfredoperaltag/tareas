@@ -1,17 +1,24 @@
 app.controller('loginCtrl', function ($scope, usuarioService) {
 	
+	$scope.verSeccion = function () {
+        //$scope.tarea = {};
+    };
+    
+    
+	
 	$scope.submitForm = function (esValido) {
         if (esValido) {
         	console.log("ENVIADO", $scope.login);
             usuarioService.postLogin($scope.login).then((respuesta) => {
                 console.log("respuesta: "+respuesta);
-                if (respuesta != 0) {
+                if (respuesta) {
                     $scope.usuario = {};
                     Swal.fire(
                         '¡OK!',
                         '¡Inicio sesion!',
                         'success'
                     )
+                    
                     //$scope.usuario = null;
                     //$scope.obtenerTarea();
                 } else {
@@ -33,6 +40,15 @@ app.controller('loginCtrl', function ($scope, usuarioService) {
             )
         }
     }
+	
+	
+	const initController = function () {
+    	//$scope.obtenerTarea();
+    }
+
+    angular.element(document).ready(function () {
+    	initController();
+    })
 	
 	
 })
