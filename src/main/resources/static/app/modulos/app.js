@@ -11,5 +11,7 @@ const app = angular.module('appTareas', ['ngRoute'])
 			}).when("/usuario", {
 				templateUrl: "app/vistas/usuario.html",
 				//controller: "app/controladores/usuarioCtrl"
-			})
+			}).otherwise({
+	            redirectTo: "/"
+	        });
 	}]);

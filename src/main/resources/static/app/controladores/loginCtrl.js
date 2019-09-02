@@ -20,10 +20,12 @@ app.controller('loginCtrl', function ($scope, usuarioService, $location, session
                         '¡Inicio sesion!',
                         'success'
                     )
-                    $scope.cambiarVista('tarea');
+                    
                     sessionFactory.set('usuario', respuesta)
                     var sessionData = sessionFactory.get('usuario');
-                    console.log("SESIOnDATA", sessionData);
+                    $scope.cambiarVista('tarea');
+                    
+
                     
                     //$scope.usuario = null;
                     //$scope.obtenerTarea();
