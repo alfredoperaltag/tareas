@@ -27,7 +27,16 @@ public class TareasController {
 	 @Qualifier("TareasService")
 	 private TareasService tareasService;
 
-	 
+	 @RequestMapping(path = "tareasUsuario", method = RequestMethod.GET)
+	    public @ResponseBody
+	    List<Tareas> listarTareas(int idUsuario){
+	        try{
+	            return tareasService.tareasUsuario(idUsuario);
+	        }catch (Exception ex){
+	            log.error("ERROR: "+ex.getMessage());
+	            return null;
+	        }
+	}
 	 @RequestMapping(path = "tareas", method = RequestMethod.GET)
 	    public @ResponseBody
 	    List<Tareas> listarTareas(){

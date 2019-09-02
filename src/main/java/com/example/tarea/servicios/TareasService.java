@@ -10,4 +10,5 @@ public interface TareasService {
     public boolean actualizarTarea(Tareas tarea);
     public boolean borrarTarea(Tareas tarea);
     public List<Tareas> listarTareas();
+    public List<Tareas> tareasUsuario(int idUsuario);
 }

@@ -10,7 +10,7 @@ public class Usuario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int Id;
+	private int id;
 	
 	@NotNull
     @Size(min = 2,max = 40)
@@ -57,7 +57,7 @@ public class Usuario {
 			@NotNull @Size(min = 2, max = 40) String paterno, @NotNull @Size(min = 2, max = 40) String materno,
 			@NotNull @Size(min = 6, max = 13) String tipo, @NotNull @Size(min = 2, max = 40) String password) {
 		super();
-		Id = id;
+		id = id;
 		Nombre = nombre;
 		Paterno = paterno;
 		Materno = materno;
@@ -77,12 +77,12 @@ public class Usuario {
 	}
 	
 
-	public int getId() {
-		return Id;
+	public int getid() {
+		return id;
 	}
 
-	public void setId(int id) {
-		Id = id;
+	public void setid(int id) {
+		id = id;
 	}
 
 	public String getNombre() {
@@ -127,7 +127,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [Id=" + Id + ", Nombre=" + Nombre + ", Paterno=" + Paterno + ", Materno=" + Materno + ", Tipo="
+		return "Usuario [id=" + id + ", Nombre=" + Nombre + ", Paterno=" + Paterno + ", Materno=" + Materno + ", Tipo="
 				+ Tipo + ", Password=" + Password + "]";
 	}	
 	

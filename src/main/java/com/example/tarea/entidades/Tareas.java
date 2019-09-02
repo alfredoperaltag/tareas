@@ -12,7 +12,7 @@ public class Tareas {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int Id;
+	private int id;
 	
 	@NotNull
     @Size(min = 2,max = 40)
@@ -27,15 +27,16 @@ public class Tareas {
 	private String Descripcion;
 	
 	@ManyToOne
-	@JoinColumn(name="Id_usuario")
+	@JoinColumn(name="usuario_Id")
 	private Usuario usuario;
 	
 	public Tareas() {
 	}
 	
+	
 	public Tareas(int id, @NotNull @Size(min = 2, max = 40) String titulo, @NotNull Date fecha, String descripcion) {
 		super();
-		Id = id;
+		id = id;
 		Titulo = titulo;
 		Fecha = fecha;
 		Descripcion = descripcion;
@@ -48,13 +49,25 @@ public class Tareas {
 		Fecha = fecha;
 		Descripcion = descripcion;
 	}
+	
+
+	public Tareas(int id, @NotNull @Size(min = 2, max = 40) String titulo, @NotNull Date fecha, String descripcion,
+			Usuario usuario) {
+		super();
+		this.id = id;
+		Titulo = titulo;
+		Fecha = fecha;
+		Descripcion = descripcion;
+		this.usuario = usuario;
+	}
+
 
 	public int getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(int id) {
-		this.Id = id;
+		this.id = id;
 	}
 
 	public String getTitulo() {
@@ -91,6 +104,6 @@ public class Tareas {
 
 	@Override
 	public String toString() {
-		return "Tareas [Id=" + Id + ", Titulo=" + Titulo + ", Fecha=" + Fecha + ", Descripcion=" + Descripcion + "]";
+		return "Tareas [Id=" + id + ", Titulo=" + Titulo + ", Fecha=" + Fecha + ", Descripcion=" + Descripcion + "]";
 	}
 }

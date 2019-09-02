@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.example.tarea.entidades.Tareas;
@@ -16,7 +17,8 @@ public class TareasServiceImpl implements TareasService{
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 	
 	@Autowired
-	public TareasRepository tareasRepository;
+	@Qualifier ("TareasRepository")
+	private TareasRepository tareasRepository;
 	
 	@Override
 	public boolean agregarTarea(Tareas tarea) {
@@ -88,4 +90,13 @@ public class TareasServiceImpl implements TareasService{
             return null;
         }
 }
+	@Override
+	public List<Tareas> tareasUsuario(int idUsuario) {
+		try {
+			return (List<Tareas>) tareasRepository.findAllByUsuarioId(idUsuario);
+		}catch(Exception ex){
+			log.error(ex.getMessage());
+		}
+		return null;
+	}
 }
