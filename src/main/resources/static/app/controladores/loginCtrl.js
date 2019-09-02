@@ -1,32 +1,38 @@
-app.controller('loginCtrl', function ($scope, usuarioService) {
-	
-	$scope.verSeccion = function () {
-        //$scope.tarea = {};
+app.controller('loginCtrl', function ($scope, usuarioService, $location, sessionFactory) {
+
+
+    $scope.cambiarVista = function (ruta) {
+        $location.path(ruta);
     };
+
     
-    
-	
-	$scope.submitForm = function (esValido) {
+
+
+
+    $scope.submitForm = function (esValido) {
         if (esValido) {
-        	console.log("ENVIADO", $scope.login);
+            console.log("ENVIADO", $scope.login);
             usuarioService.postLogin($scope.login).then((respuesta) => {
-                console.log("respuesta: "+respuesta);
+                console.log("respuesta: ", respuesta);
                 if (respuesta) {
-                    $scope.usuario = {};
                     Swal.fire(
                         '¡OK!',
                         '¡Inicio sesion!',
                         'success'
                     )
+                    $scope.cambiarVista('tarea');
+                    sessionFactory.set('usuario', respuesta)
+                    var sessionData = sessionFactory.get('usuario');
+                    console.log("SESIOnDATA", sessionData);
                     
                     //$scope.usuario = null;
                     //$scope.obtenerTarea();
                 } else {
-                	Swal.fire(
-                            '¡NO!',
-                            '¡Nombre o contraseña incorrectos!',
-                            'error'
-                        )
+                    Swal.fire(
+                        '¡NO!',
+                        '¡Nombre o contraseña incorrectos!',
+                        'error'
+                    )
                     console.log("ERROR");
                 }
             }, (reject) => {
@@ -40,15 +46,9 @@ app.controller('loginCtrl', function ($scope, usuarioService) {
             )
         }
     }
-	
-	
-	const initController = function () {
-    	//$scope.obtenerTarea();
-    }
 
-    angular.element(document).ready(function () {
-    	initController();
-    })
-	
-	
+
+    
+
+
 })
