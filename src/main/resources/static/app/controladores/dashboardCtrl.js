@@ -1,14 +1,11 @@
-const app = angular.module('appTareas', ['ngRoute'])
+const dashboard = angular.module('DashboardApp', ['ngRoute'])
 	.config(['$routeProvider', '$locationProvider', function ($routeProvider) {
 
 		$routeProvider
-			.when("/", {
-				templateUrl: "app/vistas/login.html",
-				//controller: "app/controladores/loginCtrl"
-			}).when("/tarea", {
+			.when("/dashboard/tarea", {
 				templateUrl: "app/vistas/tarea.html",
 				//controller: "app/controladores/usuarioCtrl"
-			}).when("/usuario", {
+			}).when("/dashboard/usuario", {
 				templateUrl: "app/vistas/usuario.html",
 				//controller: "app/controladores/usuarioCtrl"
 			})
