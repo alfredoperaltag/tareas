@@ -13,7 +13,7 @@ const app = angular.module('appTareas', ['ngRoute'])
 				//controller: "app/controladores/usuarioCtrl"
 			}).when("/chat", {
 				templateUrl: "app/vistas/chat.html",
-				controller: "chat",
+				controller: "chatCtrl",
 			}).otherwise({
 	            redirectTo: "/"
 	        });
