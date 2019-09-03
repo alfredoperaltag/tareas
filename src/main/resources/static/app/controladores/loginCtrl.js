@@ -21,7 +21,7 @@ app.controller('loginCtrl', function ($scope, usuarioService, $location, session
                         'success'
                     )
                     
-                    sessionFactory.set('usuario', respuesta)
+                    sessionFactory.set('usuario', respuesta);
                     var sessionData = sessionFactory.get('usuario');
                     $scope.cambiarVista('tarea');
                     
