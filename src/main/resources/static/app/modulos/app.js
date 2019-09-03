@@ -11,10 +11,10 @@ const app = angular.module('appTareas', ['ngRoute'])
 			}).when("/usuario", {
 				templateUrl: "app/vistas/usuario.html",
 				//controller: "app/controladores/usuarioCtrl"
-			})/*.when("/chat", {
+			}).when("/chat", {
 				templateUrl: "app/vistas/chat.html",
-				//controller: "app/controladores/usuarioCtrl"
+				controller: "chat",
 			}).otherwise({
 	            redirectTo: "/"
-	        })*/;
+	        });
 	}]);
