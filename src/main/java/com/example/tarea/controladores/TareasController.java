@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,9 +28,9 @@ public class TareasController {
 	 @Qualifier("TareasService")
 	 private TareasService tareasService;
 
-	 @RequestMapping(path = "tarea", method = RequestMethod.POST)
+	 @RequestMapping(path = "tarea/{id}", method = RequestMethod.GET)
 	    public @ResponseBody
-	    List<Tareas> tareasUsuario(@RequestBody int idUsuario){
+	    List<Tareas> tareasUsuario(@PathVariable("id") int idUsuario){
 	        try{
 	            return tareasService.tareasUsuario(idUsuario);
 	        }catch (Exception ex){

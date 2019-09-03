@@ -2,11 +2,12 @@
 // factory
 app.factory("factory", function ($http, $q) {
     return {
-    	postById: function ($url, data) {
+    	getById: function ($url, data) {
             return $http({
-                url: '/' + $url,
-                method: 'POST',
-                data: data
+                url: '/' + $url+'/'+data,
+                method: 'GET',
+                //data: data
+                //params: {id: data}
             }).then((succes) => {
                 return succes.data
             }, (error) => {

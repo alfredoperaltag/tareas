@@ -27,7 +27,7 @@ app.controller('tareasCtrl', function ($scope, tareasService, $location, session
         $scope.obtenerTarea = function () {
         	$scope.usuario = sessionFactory.get("usuario");
         	console.log("GET: ", $scope.usuario);
-            tareasService.postById($scope.usuario.id).then((data) => {
+            tareasService.getById($scope.usuario.id).then((data) => {
                 console.log("Ctrl1: ", data);
                 $scope.listarTareas = data;
             }, (reject) => {

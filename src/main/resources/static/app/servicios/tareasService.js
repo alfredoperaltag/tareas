@@ -4,9 +4,9 @@ app.service ('tareasService', function($q, factory) {
     const PATH = 'tareas';
     const PATH3 = 'tarea';
     
-    SELF.postById = (idUsuario) => {
+    SELF.getById = (idUsuario) => {
         return $q((success, error) => {
-            factory.postById(PATH3, idUsuario).then(
+            factory.getById(PATH3, idUsuario).then(
                 (resolve) => {
                     success(resolve) 
                 },
