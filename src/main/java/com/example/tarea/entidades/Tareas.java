@@ -27,7 +27,7 @@ public class Tareas {
 	private String Descripcion;
 	
 	@ManyToOne
-	@JoinColumn(name="usuario_Id")
+	@JoinColumn(name="usuario_id")
 	private Usuario usuario;
 	
 	public Tareas() {
@@ -36,7 +36,7 @@ public class Tareas {
 	
 	public Tareas(int id, @NotNull @Size(min = 2, max = 40) String titulo, @NotNull Date fecha, String descripcion) {
 		super();
-		id = id;
+		this.id = id;
 		Titulo = titulo;
 		Fecha = fecha;
 		Descripcion = descripcion;
@@ -55,9 +55,9 @@ public class Tareas {
 			Usuario usuario) {
 		super();
 		this.id = id;
-		Titulo = titulo;
-		Fecha = fecha;
-		Descripcion = descripcion;
+		this.Titulo = titulo;
+		this.Fecha = fecha;
+		this.Descripcion = descripcion;
 		this.usuario = usuario;
 	}
 
@@ -104,6 +104,8 @@ public class Tareas {
 
 	@Override
 	public String toString() {
-		return "Tareas [Id=" + id + ", Titulo=" + Titulo + ", Fecha=" + Fecha + ", Descripcion=" + Descripcion + "]";
+		return "Tareas [id=" + id + ", Titulo=" + Titulo + ", Fecha=" + Fecha + ", Descripcion=" + Descripcion
+				+ ", usuario=" + usuario + "]";
 	}
+	
 }

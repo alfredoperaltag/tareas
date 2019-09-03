@@ -3,6 +3,7 @@ app.service ('usuarioService', function($q, factory) {
     // nombre del restController
     const PATH = 'usuario';
     const PATH2 = 'login';
+    
 
     SELF.get = () => {
         return $q((success, error) => {
@@ -15,6 +16,7 @@ app.service ('usuarioService', function($q, factory) {
                 })
         })
     }
+    
     SELF.postLogin = (usuario) => {
         return $q((success, error) => {
             factory.post(PATH2, usuario).then(

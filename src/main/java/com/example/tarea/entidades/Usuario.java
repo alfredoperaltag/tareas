@@ -57,7 +57,7 @@ public class Usuario {
 			@NotNull @Size(min = 2, max = 40) String paterno, @NotNull @Size(min = 2, max = 40) String materno,
 			@NotNull @Size(min = 6, max = 13) String tipo, @NotNull @Size(min = 2, max = 40) String password) {
 		super();
-		id = id;
+		this.id = id;
 		Nombre = nombre;
 		Paterno = paterno;
 		Materno = materno;
@@ -82,7 +82,7 @@ public class Usuario {
 	}
 
 	public void setid(int id) {
-		id = id;
+		this.id = id;
 	}
 
 	public String getNombre() {

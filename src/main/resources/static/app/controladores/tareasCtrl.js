@@ -25,8 +25,10 @@ app.controller('tareasCtrl', function ($scope, tareasService, $location, session
         };
 
         $scope.obtenerTarea = function () {
-            tareasService.get().then((data) => {
-                console.log("Ctrl: ", data);
+        	$scope.usuario = sessionFactory.get("usuario");
+        	console.log("GET: ", $scope.usuario);
+            tareasService.postById($scope.usuario.id).then((data) => {
+                console.log("Ctrl1: ", data);
                 $scope.listarTareas = data;
             }, (reject) => {
                 console.log("Ctrl: ", reject);
@@ -42,6 +44,7 @@ app.controller('tareasCtrl', function ($scope, tareasService, $location, session
 
                 } else {
                     //aqui se registra
+                	$scope.tarea.usuario = $scope.usuario;
                     $scope.enviarTarea();
                 }
             } else {
@@ -56,7 +59,10 @@ app.controller('tareasCtrl', function ($scope, tareasService, $location, session
 
         $scope.enviarTarea = function () {
             console.log("tarea", $scope.tarea);
+            
+            
             tareasService.post($scope.tarea).then((respuesta) => {
+            	
                 console.log("respuesta", respuesta);
                 if (respuesta === true) {
                     console.log(respuesta);

@@ -2,6 +2,17 @@
 // factory
 app.factory("factory", function ($http, $q) {
     return {
+    	postById: function ($url, data) {
+            return $http({
+                url: '/' + $url,
+                method: 'POST',
+                data: data
+            }).then((succes) => {
+                return succes.data
+            }, (error) => {
+                return $q.reject(error);
+            })
+        },
         get: function (url) {
             return $http({
                 url: '/' + url,

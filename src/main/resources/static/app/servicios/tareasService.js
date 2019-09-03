@@ -2,10 +2,23 @@ app.service ('tareasService', function($q, factory) {
     const SELF = this;
     // nombre del restController
     const PATH = 'tareas';
-
-    SELF.get = () => {
+    const PATH3 = 'tarea';
+    
+    SELF.postById = (idUsuario) => {
         return $q((success, error) => {
-            factory.get(PATH).then(
+            factory.postById(PATH3, idUsuario).then(
+                (resolve) => {
+                    success(resolve) 
+                },
+                (reject) => {
+                    error(reject)
+                })
+        })
+    }
+
+    /*SELF.get = () => {
+        return $q((success, error) => {
+            factory.get(PATH3).then(
                 (resolve) => {
                     success(resolve)
                 },
@@ -13,7 +26,7 @@ app.service ('tareasService', function($q, factory) {
                     error(reject)
                 })
         })
-    }
+    }*/
     SELF.post = (tarea) => {
         return $q((success, error) => {
             factory.post(PATH, tarea).then(

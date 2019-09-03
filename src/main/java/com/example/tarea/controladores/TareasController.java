@@ -27,9 +27,9 @@ public class TareasController {
 	 @Qualifier("TareasService")
 	 private TareasService tareasService;
 
-	 @RequestMapping(path = "tareasUsuario", method = RequestMethod.GET)
+	 @RequestMapping(path = "tarea", method = RequestMethod.POST)
 	    public @ResponseBody
-	    List<Tareas> listarTareas(int idUsuario){
+	    List<Tareas> tareasUsuario(@RequestBody int idUsuario){
 	        try{
 	            return tareasService.tareasUsuario(idUsuario);
 	        }catch (Exception ex){
@@ -37,7 +37,7 @@ public class TareasController {
 	            return null;
 	        }
 	}
-	 @RequestMapping(path = "tareas", method = RequestMethod.GET)
+	 /*@RequestMapping(path = "tareas", method = RequestMethod.GET)
 	    public @ResponseBody
 	    List<Tareas> listarTareas(){
 	        try{
@@ -46,13 +46,11 @@ public class TareasController {
 	            log.error("ERROR: "+ex.getMessage());
 	            return null;
 	        }
-	}
+	}*/
 	 @RequestMapping(path ="tareas",method = RequestMethod.POST)
 	    public @ResponseBody boolean registrarTarea(@RequestBody String tareasJSON){
 	        try{
-	            Tareas tarea = new Tareas();
-
-	            tarea = mapper.readValue(tareasJSON, Tareas.class);
+	            Tareas tarea = mapper.readValue(tareasJSON, Tareas.class);
 	            log.info("Se recibio del formulario: \n"+tarea.toString());
 
 	            if (tareasService.agregarTarea(tarea)){
