@@ -5,6 +5,27 @@ app.controller('loginCtrl', function ($scope, usuarioService, $location, session
         $location.path(ruta);
     };
 
+    $scope.conectar= function (){
+    	var socket = new SockJS('/gs-guide-websocket');
+        stompClient = Stomp.over(socket);
+        stompClient.connect({}, function (frame) {
+            setConnected(true);
+            console.log('Connected: ' + frame);
+            stompClient.subscribe('/topic/greetings', function (greeting) {
+                showGreeting(JSON.parse(greeting.body).content);
+            });
+        });
+    }
+    
+    function setConnected(connected) {
+	    if (connected) {
+	        $("#conversation").show();
+	    }
+	    else {
+	        $("#conversation").hide();
+	    }
+	    $("#greetings").html(""); 
+	}
     
 
 
@@ -23,6 +44,7 @@ app.controller('loginCtrl', function ($scope, usuarioService, $location, session
                     
                     sessionFactory.set('usuario', respuesta);
                     var sessionData = sessionFactory.get('usuario');
+                    $scope.conectar();
                     $scope.cambiarVista('tarea');
                     
 

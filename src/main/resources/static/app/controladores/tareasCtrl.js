@@ -1,8 +1,27 @@
 app.controller('tareasCtrl', function ($scope, tareasService, $location, sessionFactory) {
 	
+	$scope.desconectar = function(){
+		if (stompClient !== null) {
+	        stompClient.disconnect();
+	    }
+	    setConnected(false);
+	    console.log("Disconnected");
+	}
+	
+	function setConnected(connected) {
+	    if (connected) {
+	        $("#conversation").show();
+	    }
+	    else {
+	        $("#conversation").hide();
+	    }
+	    $("#greetings").html(""); 
+	}
+	
 	$scope.cerrarSession = function (){
 		sessionFactory.clear()
 		$scope.cambiarVista('/');
+		$scope.desconectar();
 	}
 	
 	$scope.cambiarVista = function (ruta) {
