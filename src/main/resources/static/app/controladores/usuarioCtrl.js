@@ -27,7 +27,6 @@ app.controller('usuarioCtrl', function ($scope, usuarioService, $location, sessi
 
         $scope.obtenerUsuario = function () {
             usuarioService.get().then((data) => {
-                console.log("Ctrl: ", data);
                 $scope.listaUsuario = data;
             }, (reject) => {
                 console.log("Ctrl: ", reject);
@@ -56,11 +55,8 @@ app.controller('usuarioCtrl', function ($scope, usuarioService, $location, sessi
 
 
         $scope.enviarUsuario = function () {
-            console.log("usuario", $scope.usuario);
             usuarioService.post($scope.usuario).then((respuesta) => {
-                console.log("respuesta", respuesta);
                 if (respuesta === true) {
-                    console.log(respuesta);
                     $scope.usuario = {};
                     Swal.fire(
                         '¡OK!',
@@ -85,11 +81,8 @@ app.controller('usuarioCtrl', function ($scope, usuarioService, $location, sessi
 
 
         $scope.editarUsuario = function () {
-            console.log("usuarioEditar", $scope.usuario);
             usuarioService.put($scope.usuario).then((respuesta) => {
-                console.log("respuesta", respuesta);
                 if (respuesta === true) {
-                    console.log(respuesta);
                     Swal.fire(
                         '¡OK!',
                         '¡Se edito correctamente!',
@@ -117,11 +110,8 @@ app.controller('usuarioCtrl', function ($scope, usuarioService, $location, sessi
                 confirmButtonText: 'Si, Eliminar!'
             }).then((result) => {
                 if (result.value) {
-                    console.log("usuarioBorrar", usuario);
                     usuarioService.delete(usuario).then((respuesta) => {
-                        console.log("respuesta", respuesta);
                         if (respuesta === true) {
-                            console.log(respuesta);
                             Swal.fire(
                                 'Eliminado!',
                                 'El usuario se borro correctamente .',

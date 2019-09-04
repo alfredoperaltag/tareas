@@ -1,21 +1,11 @@
-app.controller('tareasCtrl', function ($scope, tareasService, $location, sessionFactory) {
+app.controller('tareasCtrl', function ($scope, tareasService, $location, sessionFactory, chatFactory) {
 	
 	$scope.desconectar = function(){
 		if (stompClient !== null) {
 	        stompClient.disconnect();
 	    }
-	    setConnected(false);
+	    chatFactory.desconectado();
 	    console.log("Disconnected");
-	}
-	
-	function setConnected(connected) {
-	    if (connected) {
-	        $("#conversation").show();
-	    }
-	    else {
-	        $("#conversation").hide();
-	    }
-	    $("#greetings").html(""); 
 	}
 	
 	$scope.cerrarSession = function (){
@@ -45,9 +35,7 @@ app.controller('tareasCtrl', function ($scope, tareasService, $location, session
 
         $scope.obtenerTarea = function () {
         	$scope.usuario = sessionFactory.get("usuario");
-        	console.log("GET: ", $scope.usuario);
             tareasService.getById($scope.usuario.id).then((data) => {
-                console.log("Ctrl1: ", data);
                 $scope.listarTareas = data;
             }, (reject) => {
                 console.log("Ctrl: ", reject);
@@ -77,14 +65,9 @@ app.controller('tareasCtrl', function ($scope, tareasService, $location, session
 
 
         $scope.enviarTarea = function () {
-            console.log("tarea", $scope.tarea);
-            
-            
             tareasService.post($scope.tarea).then((respuesta) => {
-            	
-                console.log("respuesta", respuesta);
+
                 if (respuesta === true) {
-                    console.log(respuesta);
                     $scope.tarea = {};
                     Swal.fire(
                         '¡OK!',
@@ -110,11 +93,8 @@ app.controller('tareasCtrl', function ($scope, tareasService, $location, session
 
 
         $scope.editarTarea = function () {
-            console.log("tareaEditar", $scope.tarea);
             tareasService.put($scope.tarea).then((respuesta) => {
-                console.log("respuesta", respuesta);
                 if (respuesta === true) {
-                    console.log(respuesta);
                     Swal.fire(
                         '¡OK!',
                         '¡Se edito correctamente!',
@@ -142,11 +122,8 @@ app.controller('tareasCtrl', function ($scope, tareasService, $location, session
                 confirmButtonText: 'Si, Eliminar!'
             }).then((result) => {
                 if (result.value) {
-                    console.log("tareaBorrar", tarea);
                     tareasService.delete(tarea).then((respuesta) => {
-                        console.log("respuesta", respuesta);
                         if (respuesta === true) {
-                            console.log(respuesta);
                             Swal.fire(
                                 'Eliminado!',
                                 'La tarea se borro correctamente .',

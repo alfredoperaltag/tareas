@@ -1,29 +1,17 @@
 <div class="card">
 	<div class="card-body">
 		<div id="main-content" class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <form class="form-inline chat">
+    		<div class="row">
+    			<div class="col-md-12">
+            		<form class="form-inline">
                 <div class="form-group">
-                    <button id="connect" class="btn btn-info" type="submit">Conectar</button>
-                    <button id="disconnect" class="btn btn-danger" type="submit" disabled="disabled">Desconectar
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-    <hr>
-    <div class="row">
-    	<div class="col-md-12">
-            <form class="form-inline">
-                <div class="form-group">
-                    <label for="name">Usuario</label>
+                    <label class="p-4" for="name">Enviar Mensaje:</label>
                     <input type="text" id="name" class="form-control" placeholder="Escribir mensaje">
                 </div>
                 <button id="send" class="btn btn-outline-info" type="submit" data-ng-click="enviar();">Enviar</button>
             </form>
         </div>
-        <div class="col-md-12">
+        		<div class="col-md-12">
             <table id="conversation" class="table table-striped">
                 <thead>
                 <tr>
@@ -34,7 +22,7 @@
                 </tbody>
             </table>
         </div>
-    </div>
-</div>
+    		</div>
+		</div>
 	</div>
 </div>
